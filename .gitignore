@@ -1,0 +1,35 @@
+# R session
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*~
+*.swp
+
+# Raw data — not committed because of file size and licensing.
+# Researchers reproducing the analysis must obtain these from the original
+# sources listed in the README.
+data/raw/
+
+# Processed data — derived from raw data, should be regeneratable. Commit
+# selectively if needed for downstream scripts to run without re-running
+# expensive upstream steps.
+data/processed/*.csv
+data/processed/*.rds
+
+# Output figures and tables — uncomment one of the lines below if you want
+# to commit final outputs (recommended for the dissertation submission copy).
+# outputs/figures/
+# outputs/tables/
+
+# Logs
+*.log
