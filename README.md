@@ -25,7 +25,7 @@ The analysis addresses two research questions:
 
 - **Species commercial-importance classifications:** Froese, R. and D. Pauly. Editors. (2026). FishBase. World Wide Web electronic publication. www.fishbase.org Accessed via the rfishbase R package (Boettiger et al., 2012).
 
-Raw data is not hosted in this repository. Researchers wishing to reproduce the analysis should obtain it from the sources listed above.
+
 
 ## Repository Structure
 
