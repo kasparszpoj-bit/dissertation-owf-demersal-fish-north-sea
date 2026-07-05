@@ -10,10 +10,10 @@ Geostatistical analysis of offshore wind farm influence on demersal fish communi
 
 This project investigates whether the presence of offshore wind farms (OWFs) in the Greater North Sea is associated with changes in demersal fish community structure, using ICES trawl survey data from 1993 to 2020 across 122 OWFs. Two community level metrics are analysed, Community Mean Size (CMS) and species richness, across three commercial importance groups (Low, Medium, High) classified using FishBase.
 
-Offshore wind capacity is expanding rapidly [confirm source and region for the figure below], from roughly 37 GW in 2026 towards a 300 GW target by 2050. That growth is the practical motivation for this analysis: understanding how OWFs affect fish communities matters more as more of them get built.
+Offshore wind capacity is expanding rapidly, from roughly 37 GW towards a 300 GW target by 2050 (WindEurope, 2026). That growth is the practical motivation for this analysis: understanding how OWFs affect fish communities matters more as more of them get built.
 
 ![Cumulative installed OWF capacity, observed and projected to the 2050 target](outputs/figures/owf_capacity_growth.png)
-*Figure 1. Cumulative installed OWF capacity, observed to 2026 and projected to the 2050 target. [Add source citation once confirmed.]*
+*Figure 1. Cumulative installed OWF capacity, observed to 2026 and projected to the 2050 target (WindEurope, 2026).*
 
 The analysis addresses two research questions:
 
@@ -29,12 +29,12 @@ The analysis addresses two research questions:
 
 **RQ2, GAMs (`08_gam_models.R`).** Allowing for non-linear smooth terms reveals shapes the linear models miss:
 
-- **Low commercial value:** both CMS and richness are highest close to OWFs and decline with distance, consistent with a reef effect for this group.
-- **Medium commercial value:** the CMS relationship is non-monotonic (a dip around 20 to 25 km followed by a partial recovery around 35 to 40 km), while richness declines roughly linearly with distance.
-- **High commercial value:** the CMS pattern reverses direction, rising slightly with distance rather than falling, while richness stays close to flat across the full range.
+- **Low commercial value:** no significant non-linear smooth for CMS (edf = 1.40, p = 0.082) or richness (edf = 1.00, p = 0.094); the GAM does not improve on the linear model for either metric (ΔAIC < 2). The group's only significant signal is the linear CMS decline reported under RQ1.
+- **Medium commercial value:** the CMS relationship is non-monotonic and the GAM outperforms the linear model (edf = 3.67, F = 5.26, p = 0.003, ΔAIC = 13.5), a dip around 20 to 25 km followed by a partial recovery around 35 to 40 km. Richness declines but the smooth is effectively linear (edf = 1.00, F = 11.21, p < 0.001) and does not improve on the linear model (ΔAIC < 2).
+- **High commercial value:** neither CMS (edf = 1.01, p = 0.345) nor richness (edf = 1.79, p = 0.715) shows a significant smooth; both remain flat across the full distance range.
 
 ![GAM partial effects for CMS and species richness by commercial group](outputs/figures/gam_partial_effects.png)
-*Figure 3. Partial effects of distance to nearest OWF on CMS (top row) and species richness (bottom row), by commercial importance group. [Insert exact edf and p values from the `08_gam_models.R` console output, the panel labels in this figure are currently blank and need fixing at the source.]*
+*Figure 3. Partial effects of distance to nearest OWF on CMS (top row) and species richness (bottom row), by commercial importance group. Only the Medium-group smooths (CMS and richness) are statistically significant; see Table 2 in the dissertation for full edf, F, and p values.*
 
 **Study area.** All hauls and OWF polygons used in the analysis, with the 50 km buffer methodology used to assign each haul a distance to the nearest OWF cluster.
 
@@ -45,7 +45,7 @@ The analysis addresses two research questions:
 
 - **Trawl survey data:** Lynam, C.P. & Ribeiro, J. (2022). GNSIntOT1 NE Atlantic Groundfish Survey. Cefas Data Portal. https://data.cefas.co.uk/ Accessed [Month Year].
 
-- **Offshore wind farm polygons:** EMODnet Human Activities (2026). Offshore Wind Farms (Polygons). European Marine Observation and Data Network. https://emodnet.ec.europa.eu/ Accessed [Month Year].
+- **Offshore wind farm polygons:** EMODnet Human Activities (2026). Offshore Wind Farms (Polygons). European Marine Observation and Data Network. https://emodnet.ec.europa.eu/ Accessed January 2026.
 
 - **ICES ecoregion boundaries:** International Council for the Exploration of the Sea (2017). ICES Ecoregions. https://www.ices.dk/ Accessed [Month Year].
 
